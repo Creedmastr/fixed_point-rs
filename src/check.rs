@@ -25,16 +25,20 @@ impl Checking for Float {
 }
 
 pub trait Utils {
-    fn len(&self) -> u16;
+    fn len(&self) -> (usize, char, char);
 }
 
 impl Utils for i64 {
-    fn len(&self) -> u16 {
-        let mut count: u16 = 0;
-        for ch in &self.abs().to_string().chars().collect::<Vec<char>>() {
-            count += 1;
-        }
+    fn len(&self) -> (usize, char, char) {
+        let chs = &self.abs().to_string().chars().collect::<Vec<char>>();
+        let length = chs.len();
+        let last_character = chs[length - 1];
+        let first_character = chs[0];
 
-        return count;
+        return (length, last_character, first_character);
     }
+}
+
+pub fn upper_multiple_of_10(n: i32) -> u32 {
+    return ((n / 10 + 1) * 10) as u32
 }

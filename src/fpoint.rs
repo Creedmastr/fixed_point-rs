@@ -15,12 +15,13 @@ impl Add for Float {
         let mut temp_integer = self.check_int_negatives() + rhs.check_int_negatives();
         let temp_floating_part = self.check_float_negatives() + rhs.check_float_negatives();
 
-        if temp_floating_part.len() != self.floating_part.len() {
-            todo!();
+        let f_len = self.floating_part.len();
+        let tempf_len = temp_floating_part.len();
 
-            // TODO: if the last character change, do nothing
-            // If the first character changes, then you start comparing all the characters, 
-            // and add to the temp_integer variable consequentely
+        if tempf_len.0 != f_len.0 {
+            // If the upper multiple of ten is exceeded, you add the first numbers
+            // by the difference of length between the original and the new one
+
         }
 
         return Float {
