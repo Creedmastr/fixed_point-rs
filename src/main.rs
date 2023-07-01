@@ -1,6 +1,11 @@
+#![allow(non_camel_case_types)]
+
+use crate::fpoint::fi;
+
 mod fpoint;
-mod check;
 
 fn main() {
-    println!("Hello, world!");
+    let nb = fi::from(2092934747);
+
+    println!("{}", nb.fmt());
 }
